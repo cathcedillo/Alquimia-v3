@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1cyzlsu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.0.3">
+  <bpmn:process id="ObtieneTokenAlquimia" name="Obtiene token Alquimia" isExecutable="true" camunda:versionTag="2">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0um7yh4</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0um7yh4" sourceRef="StartEvent_1" targetRef="Task_16do25y" />
+    <bpmn:serviceTask id="Task_16do25y" name="Obtiene token">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://localhost:8081/obtieneTokenAlquimia</camunda:inputParameter>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:outputParameter name="respuesta">
+              <camunda:script scriptFormat="groovy">response</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0um7yh4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12dfblk</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:scriptTask id="Task_1qgfv77" name="Pinta token en consola" scriptFormat="javascript" camunda:resultVariable="token">
+      <bpmn:incoming>SequenceFlow_12dfblk</bpmn:incoming>
+      <bpmn:script>var json = S(respuesta);
+var tokenProperty = json.prop("access_token");
+var token = tokenProperty .value();
+print("token = "+token);
+</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="SequenceFlow_12dfblk" sourceRef="Task_16do25y" targetRef="Task_1qgfv77" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ObtieneTokenAlquimia">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="174" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0um7yh4_di" bpmnElement="SequenceFlow_0um7yh4">
+        <di:waypoint x="210" y="120" />
+        <di:waypoint x="266" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0faz55c_di" bpmnElement="Task_16do25y">
+        <dc:Bounds x="266" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ScriptTask_0q07el9_di" bpmnElement="Task_1qgfv77">
+        <dc:Bounds x="417" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_12dfblk_di" bpmnElement="SequenceFlow_12dfblk">
+        <di:waypoint x="366" y="120" />
+        <di:waypoint x="417" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.login{
+  background: url('../image/fondoAlquimia.jpg') no-repeat center top;
+}
+
+.divLogin{
+  background-color: #fff;
+  margin: 4% auto;
+  padding: 2% 3%;
+}
+
+.logoAlquimia{
+  width: 55%;
+}
+
+hr{
+  border-top: .1rem solid;
+  margin-top: 1.5rem;
+  color: #2f3539;
+}
+
+.spcl{
+  margin-top: .75rem;
+}
+
+.alCent{
+  text-align: center;
+}
+
+.alIzq{
+  float: left;
+}
+
+.grpBtns{
+  margin: 2% 3%;
+  color: #fff;
+  padding: 1%;
+  border-radius: .5rem;
+  cursor: pointer;
+  width: 12%;
+}
+
+.btnWind{
+  background-color: #0074cf;
+  border: 1px solid #0074cf;
+}
+
+.btnGoog{
+  background-color: #d84d3d;
+  border: 1px solid #d84d3d;
+}
+
+.btnFb{
+  background-color: #395498;
+  border: 1px solid #395498;
+}
+
+.btnCont{
+  background-color: #76E2A7;
+  color: #fff;
+  border-color: #76E2A7;
+  border-radius: .35rem;
+  padding: 2% 8%;
+  border-style: none;
+  cursor: pointer;
+  margin: 2%;
+}
+
+.suggestions{
+  text-align: right;
+  font-size: small;
+  padding: 2%;
+}
+
+.conoce{
+  color: #2f3539;
+}
+
+.conoce:hover{
+  color: #2f3539;
+}
+
+.formAlq{
+  border-radius: 0;
+  border: 1px solid #e6e8ea;
+  border-left: 4px solid #76E2A7;
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #2f3539;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.formAlq:focus{
+  color: #2f3539;
+  background-color: #fff;
+  border-color: #76E2A7;
+  outline: 0;
+}
