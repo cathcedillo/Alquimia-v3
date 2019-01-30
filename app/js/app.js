@@ -1,4 +1,5 @@
 require("bootstrap/dist/css/bootstrap.css");
+require("./../css/style.css");
 
 import Vue from "vue";
 
