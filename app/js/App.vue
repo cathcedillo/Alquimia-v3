@@ -5,7 +5,7 @@
   (() => import("@fortawesome/fontawesome-free/css/all.min.css"))();
 
   import "./../css/style.css";
-  
+
   var axios = require('axios');
 
   export default {
@@ -26,7 +26,7 @@
 
       conexionCamunda () {
         axios
-          .post("http://localhost:8080/engine-rest/process-definition/key/ObtieneTokenAlquimia/start")
+          .post("https://apvitae.alquimiadigital.mx/cpanel/index.php/api")
           .then(response => console.log("Exitosa",response))
           .catch(error => console.log(error))
       }

@@ -10,27 +10,31 @@ new Vue({
   data: {
     user: null,
     password: null,
-    errors: []
+    errors: [],
+    info: null
   },
   methods: {
-    checkForm: function (e) {
-      if (this.user && this.password) {
-        return true;
-        conexionCamunda();
-      }
-      this.errors = [];
-      if (!this.user) {
-        this.errors.push('User required.');
-      }
-      e.preventDefault();
-    },
+    // checkForm: function (e) {
+    //   if (this.user && this.password) {
+    //     return true;
+    //     conexionCamunda();
+    //   }
+    //   this.errors = [];
+    //   if (!this.user) {
+    //     this.errors.push('User required.');
+    //   }
+    //   e.preventDefault();
+    // },
     conexionCamunda: function () {
       axios
-        .post("http://localhost:8080/engine-rest/process-definition/key/ObtieneTokenAlquimia/start",{
-          user: this.user,
-          password: this.password
+        .post("https://apvitae.alquimiadigital.mx/cpanel/index.php/api/oauth2/token",{
+          "grant_type": "password",
+          "username": this.user,
+          "password": this.password,
+          "client_id": "testclient",
+          "client_secret": "testpass"
         })
-        .then(response => console.log("Exitosa",response))
+        .then(response => (this.info = response))
         .catch(error => console.log(error))
     }
   }

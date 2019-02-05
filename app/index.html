@@ -40,13 +40,11 @@
             </div>
           </div> -->
           <div class="col-10 offset-1">
-            <form @submit="checkForm" method="post">
-              <label for="user" class="alIzq">Usuario:</label><br>
-              <input class="formAlq" type="text" name="user" id="user"><br>
-              <label for="password" class="alIzq">Contraseña:</label><br>
-              <input class="formAlq" type="password" name="password" id="password"><br>
-              <button type="submit" name="continue" class="btnCont" @click="conexionCamunda(checkForm)">Continuar</button>
-            </form>
+            <label for="user" class="alIzq">Usuario:</label><br>
+            <input class="formAlq" type="text" name="user" v-model="user" id="user"><br>
+            <label for="password" class="alIzq">Contraseña:</label><br>
+            <input class="formAlq" type="password" name="password" v-model="password" id="password"><br>
+            <button type="submit" name="continue" class="btnCont" @click="conexionCamunda">Continuar</button>
           </div>
           <div class="suggestions">
             <a href="#" class="text-decoration-none conoce">Conoce el demo de Alquimia</a><br>
@@ -56,6 +54,5 @@
       </div>
     </div>
     <!--- /Main Code --->
-    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
