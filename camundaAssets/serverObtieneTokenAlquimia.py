@@ -3,6 +3,19 @@ import simplejson
 import requests
 import json
 
+def application(environ, start_response):
+  if environ['REQUEST_METHOD'] == 'OPTIONS':
+    start_response(
+      '200 OK',
+      [
+        ('Content-Type', 'application/json'),
+        ('Access-Control-Allow-Origin', '*'),
+        ('Access-Control-Allow-Headers', 'Authorization, Content-Type'),
+        ('Access-Control-Allow-Methods', 'POST'),
+      ]
+    )
+    return ''
+
 class Root(object):
     @cherrypy.expose
     def obtieneTokenAlquimia(self):
@@ -23,7 +36,7 @@ class Root(object):
         return """
 		nada que ver aqui
 		"""
-    		
+
 if __name__ == '__main__':
     config = {'server.socket_host': '0.0.0.0','server.socket_port': 8081}
     cherrypy.config.update(config)

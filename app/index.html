@@ -4,16 +4,15 @@
     <title>Alquimia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
   <body class="login">
     <!--- Main Code --->
     <div id="app" class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3 divLogin text-center">
-          <img class="logoAlquimia" src="./../image/mesaRecurso 1.png" alt="logo alquimia">
+          <img class="logoAlquimia" src="https://lh3.googleusercontent.com/-gIkKGx8rjXo/XFMhfX0Hq6I/AAAAAAAAGFc/UyqZt26LWyQLqmo3vdTvmWh1hnKwA1ztgCLcBGAs/s0/logoAlquimia.png" alt="logo alquimia">
           <h3>BIENVENIDO</h3>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-3">
               <hr>
             </div>
@@ -39,14 +38,14 @@
             <div class="col-5">
               <hr class="spcl">
             </div>
-          </div>
+          </div> -->
           <div class="col-10 offset-1">
-            <form class="" action="index.html" method="post">
+            <form @submit="checkForm" method="post">
               <label for="user" class="alIzq">Usuario:</label><br>
-              <input class="formAlq" type="text" name="user" id="user" value=""><br>
+              <input class="formAlq" type="text" name="user" id="user"><br>
               <label for="password" class="alIzq">Contraseña:</label><br>
-              <input class="formAlq" type="text" name="password" id="password" value=""><br>
-              <button type="button" name="continue" class="btnCont" @click="conexionCamunda">Continuar</button>
+              <input class="formAlq" type="password" name="password" id="password"><br>
+              <button type="submit" name="continue" class="btnCont" @click="conexionCamunda(checkForm)">Continuar</button>
             </form>
           </div>
           <div class="suggestions">
@@ -58,8 +57,5 @@
     </div>
     <!--- /Main Code --->
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript">
-        var estilos =  require('bootstrap');
-    </script>
   </body>
 </html>
